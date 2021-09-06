@@ -10,8 +10,8 @@ export class ClientService {
 
   constructor(private http: HttpClient) {  }
 
-  public getData(): Observable<RootDataItem> {
-    return this.http.get<RootDataItem>(this.urlAddress);
+  public getData(): Observable<RootDataItem[]> {
+    return this.http.get<RootDataItem[]>(this.urlAddress);
   }
 }
 

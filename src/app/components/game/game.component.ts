@@ -10,14 +10,16 @@ import {ClientService, RootDataItem} from "../../services/client.service";
 })
 export class GameComponent implements OnInit {
 
-  rootDataItem: RootDataItem | undefined;
+  rootDataItem: RootDataItem;
   rootDataString: string | undefined;
   constructor(private client: ClientService) { }
 
   ngOnInit(): void {
     this.client.getData().subscribe(value => {
-      this.rootDataItem = value;
+      console.log(value);
+      this.rootDataItem = value[0];
       this.rootDataString = JSON.stringify(value);
+      console.log(this.rootDataItem.data)
     })
   }
 
